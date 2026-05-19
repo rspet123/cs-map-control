@@ -10,12 +10,12 @@ A CS2 demo analysis pipeline that quantifies **map control**, **area importance*
 
 For each round we calculate:
 
-- **Vision cones** are computed per player using the prebuilt visibility cache.
-- **Sighting events** are recorded when a player's cone covers an enemy's nav area.
-- **Mobility frontiers** are expanded via Dijkstra from each player's position, blocked by areas currently visible to the opposing team.
+- **Vision cones** per-player
+- **Sighting events** 
+- **Mobility frontiers**, expanded via Dijkstra from each player's position, blocked by areas currently visible to the opposing team.
 - **Nav areas** are classified into four states:
   - `active` — exclusively reachable by one team and within their vision.
-  - `passive` — exclusively reachable by one team but not yet cleared.
+  - `passive` — exclusively reachable by one team but not directly watched by that team.
   - `contested` — reachable by both teams simultaneously.
   - `neutral` — reached by neither team.
 - Per-player metrics (active %, unique area %, denial %, clearance) are accumulated and written to the database.
